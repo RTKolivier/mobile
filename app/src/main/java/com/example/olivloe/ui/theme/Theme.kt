@@ -19,6 +19,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
 import com.example.olivloe.R
 import kotlinx.coroutines.selects.selectUnbiased
 
@@ -71,7 +72,7 @@ val matuleFontFamily = FontFamily(
 )
 
 @Composable
-fun MatuleTheme(content: @Composable () -> Unit){
+fun MatuleTheme(content: @Composable () -> Unit) {
     val matuleColors = MatuleColors(
         block = Color(0xFFFFFFFF),
         text = Color(0xFF2B2B2B),
@@ -80,24 +81,23 @@ fun MatuleTheme(content: @Composable () -> Unit){
         hint = Color(0xFF6A6A6A)
     )
     val matuleTypography = MatuleTextStyle(
-        headingBold32 = TextStyle(fontFamily = matuleFontFamily, fontWeight = FontWeight.Bold, fontSize = 32.sp),
+        headingBold32 = TextStyle(fontFamily = matuleFontFamily, fontWeight = FontWeight.Black, fontSize = 32.sp),
         subTitleRegular16 = TextStyle(fontFamily = matuleFontFamily, fontWeight = FontWeight.Normal, fontSize = 16.sp),
         bodyRegular12 = TextStyle(fontFamily = matuleFontFamily, fontWeight = FontWeight.Normal, fontSize = 12.sp),
         bodyRegular14 = TextStyle(fontFamily = matuleFontFamily, fontWeight = FontWeight.Normal, fontSize = 14.sp),
         bodyRegular16 = TextStyle(fontFamily = matuleFontFamily, fontWeight = FontWeight.Normal, fontSize = 16.sp),
     )
-    CompositionLocalProvider() {
-        localMatuleColors provides  matuleColors
-        localMatuleTypogtaphy provides matuleTypography
-    }
-    content()
+        CompositionLocalProvider(
+        localMatuleColors provides matuleColors,
+        localMatuleTypogtaphy provides matuleTypography,
+        content = content
+    )
 }
-
-object MatuleTheme {
+object MatuleTheme{
     val colors: MatuleColors
     @Composable
     get() = localMatuleColors.current
-val typography
-        @Composable
-        get() = localMatuleTypogtaphy.current
+    val typography
+    @Composable
+    get() = localMatuleTypogtaphy.current
 }
