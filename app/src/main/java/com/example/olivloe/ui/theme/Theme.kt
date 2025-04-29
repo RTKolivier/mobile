@@ -81,7 +81,7 @@ fun MatuleTheme(content: @Composable () -> Unit) {
         hint = Color(0xFF6A6A6A)
     )
     val matuleTypography = MatuleTextStyle(
-        headingBold32 = TextStyle(fontFamily = matuleFontFamily, fontWeight = FontWeight.Black, fontSize = 32.sp),
+        headingBold32 = TextStyle(fontFamily = matuleFontFamily, fontWeight = FontWeight.Bold, fontSize = 32.sp),
         subTitleRegular16 = TextStyle(fontFamily = matuleFontFamily, fontWeight = FontWeight.Normal, fontSize = 16.sp),
         bodyRegular12 = TextStyle(fontFamily = matuleFontFamily, fontWeight = FontWeight.Normal, fontSize = 12.sp),
         bodyRegular14 = TextStyle(fontFamily = matuleFontFamily, fontWeight = FontWeight.Normal, fontSize = 14.sp),
